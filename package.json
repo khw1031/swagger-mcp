@@ -1,7 +1,9 @@
 {
   "name": "@hynu/swagger-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "An open-source MCP server that provides API documentation (Swagger/OpenAPI) to LLMs through the Model Context Protocol",
   "type": "module",
+  "main": "./dist/index.mjs",
   "bin": {
     "hynu-swagger-mcp": "./dist/index.mjs"
   },
@@ -21,10 +23,27 @@
     "openapi",
     "api",
     "api-documentation",
-    "api-documentation-mcp"
+    "api-documentation-mcp",
+    "model-context-protocol",
+    "llm",
+    "ai"
   ],
-  "author": "khw1031@gmail.com",
+  "author": {
+    "name": "Hyunwoo Kim",
+    "email": "khw1031@gmail.com"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khw1031/swagger-mcp.git"
+  },
+  "homepage": "https://github.com/khw1031/swagger-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/khw1031/swagger-mcp/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "packageManager": "pnpm@10.7.0",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.1",
