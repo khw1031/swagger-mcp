@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "name": "display-service",
+      "environment": "dev",
+      "description": "display service api that provides display information",
+      "url": "https://dev-some-api.com/v3/api-docs/display-service"
+    },
+    {
+      "name": "display-service",
+      "environment": "prod",
+      "description": "display service api that provides display information",
+      "url": "https://some-api.com/v3/api-docs/display-service"
+    }
+  ]
+}

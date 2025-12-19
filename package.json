@@ -1,0 +1,40 @@
+{
+  "name": "@hynu/swagger-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "hynu-swagger-mcp": "./dist/index.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "start": "node dist/index.mjs",
+    "prepublishOnly": "pnpm run build",
+    "publish:public": "pnpm publish --access public --no-git-checks"
+  },
+  "keywords": [
+    "mcp",
+    "swagger",
+    "openapi",
+    "api",
+    "api-documentation",
+    "api-documentation-mcp"
+  ],
+  "author": "khw1031@gmail.com",
+  "license": "MIT",
+  "packageManager": "pnpm@10.7.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1",
+    "@scalar/openapi-parser": "^0.23.7",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@scalar/openapi-types": "^0.5.3",
+    "@types/node": "^25.0.3",
+    "tsdown": "^0.18.0",
+    "typescript": "^5.9.3"
+  }
+}
