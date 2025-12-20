@@ -14,7 +14,9 @@ export const GET_API_DETAIL_TOOL_DESCRIPTION =
   "The environment (environment) must be specified. " +
   "The components referenced by $ref are returned in the componentRefs array (collected up to a maximum depth of 2). " +
   "The get_components Tool can be used to retrieve the detailed schema. " +
-  "If meta.depthLimitReached is true, there may be some $refs that are not collected due to deeply nested schemas.";
+  "If meta.depthLimitReached is true, there may be some $refs that are not collected due to deeply nested schemas. " +
+  "Important: The serviceName parameter must match the exact 'serviceName' value from the list_services response. " +
+  "If the user mentions a service in a different language, first call list_services to find the matching serviceName by checking the description field.";
 
 export function registerGetApiDetailTool(server: McpServer): void {
   server.registerTool(

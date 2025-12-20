@@ -12,7 +12,9 @@ export const GET_COMPONENTS_TOOL_NAME = "get_components";
 export const GET_COMPONENTS_TOOL_DESCRIPTION =
   "Retrieve the detailed information of the component schemas referenced by $ref. " +
   "The environment (environment) must be specified. " +
-  "Use the componentRefs array returned from get_api_detail as the input.";
+  "Use the componentRefs array returned from get_api_detail as the input. " +
+  "Important: The serviceName parameter must match the exact 'serviceName' value from the list_services response. " +
+  "If the user mentions a service in a different language, first call list_services to find the matching serviceName by checking the description field.";
 
 export function registerGetComponentsTool(server: McpServer): void {
   server.registerTool(

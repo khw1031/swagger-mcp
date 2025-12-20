@@ -9,7 +9,9 @@ import { listServices } from "../services/swagger-parser.service.js";
 
 export const LIST_SERVICES_TOOL_NAME = "list_services";
 export const LIST_SERVICES_TOOL_DESCRIPTION =
-  "Retrieves the list of all registered Swagger services. Returns available environments (dev, stg, prod, etc.) and information about each service including name, description, environment, and API groups (tags).";
+  "Retrieves the list of all registered Swagger services. Returns available environments (dev, stg, prod, etc.) and information about each service including name, description, environment, and API groups (tags). " +
+  "Important: When users mention services in different languages (e.g., '사용자 API' in Korean, 'ユーザーAPI' in Japanese), match them by checking the 'description' field in the returned service list, not just the 'serviceName' field. " +
+  "The serviceName field contains the exact identifier (e.g., 'user-service'), while the description field may contain multilingual descriptions that help match user queries.";
 
 const CONFIGURATION_ERROR_MESSAGE = `[Configuration Error] No Swagger services are registered.
 

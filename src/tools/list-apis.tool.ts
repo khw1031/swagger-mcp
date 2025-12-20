@@ -12,7 +12,9 @@ export const LIST_APIS_TOOL_NAME = "list_apis";
 export const LIST_APIS_TOOL_DESCRIPTION =
   "Retrieve the list of APIs for a specific service. " +
   "The environment (environment) must be specified. " +
-  "For token optimization, only the summarized information (path, method, operationId, summary, tags) is returned.";
+  "For token optimization, only the summarized information (path, method, operationId, summary, tags) is returned. " +
+  "Important: The serviceName parameter must match the exact 'serviceName' value from the list_services response. " +
+  "If the user mentions a service in a different language (e.g., '사용자 서비스', 'ユーザーサービス'), first call list_services to find the matching serviceName by checking the description field, then use that exact serviceName for this tool.";
 
 export function registerListApisTool(server: McpServer): void {
   server.registerTool(
