@@ -6,4 +6,5 @@ export default defineConfig({
   clean: true,
   target: "node18",
   banner: "#!/usr/bin/env node",
+  minify: true,
 });
