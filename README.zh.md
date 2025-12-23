@@ -77,7 +77,7 @@ node -v  # v18.0.0 或更高版本
 
 #### Cursor
 
-添加到 `~/.cursor/mcp.json` 或项目的 `.cursor/mcp.json`：
+在项目根目录创建 `.cursor/mcp.json` 文件：
 
 ```json
 {

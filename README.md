@@ -77,7 +77,7 @@ Create a `swagger-config.json` file to register the Swagger documents you want t
 
 #### Cursor
 
-Add to `~/.cursor/mcp.json` or your project's `.cursor/mcp.json`:
+Create a `.cursor/mcp.json` file in your project root:
 
 ```json
 {

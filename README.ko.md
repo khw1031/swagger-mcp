@@ -77,7 +77,7 @@ Cursor, Claude Desktop, Claude Code 등 MCP를 지원하는 클라이언트에 �
 
 #### Cursor
 
-`~/.cursor/mcp.json` 또는 프로젝트의 `.cursor/mcp.json`에 추가:
+프로젝트 루트에 `.cursor/mcp.json` 파일을 생성합니다:
 
 ```json
 {

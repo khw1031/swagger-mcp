@@ -77,7 +77,7 @@ Cursor、Claude Desktop、Claude Code などの MCP をサポートするクラ�
 
 #### Cursor
 
-`~/.cursor/mcp.json` またはプロジェクトの `.cursor/mcp.json` に追加：
+プロジェクトルートに `.cursor/mcp.json` ファイルを作成：
 
 ```json
 {
