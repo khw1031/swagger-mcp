@@ -8,18 +8,30 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { createServer } from "./server.js";
 import { initSwaggerConfigs } from "./services/swagger-fetcher.service.js";
 
-async function main(): Promise<void> {
-  // Initialize Swagger configurations
+/**
+ * Smithery entry point
+ * Creates MCP server for Smithery deployment and capability discovery
+ *
+ * @returns MCP Server instance
+ */
+export default async function () {
   await initSwaggerConfigs();
+  const mcpServer = createServer();
+  return mcpServer.server;
+}
 
-  // Create MCP server
+/**
+ * CLI entry point
+ * Runs MCP server with stdio transport for local execution
+ */
+async function main(): Promise<void> {
+  await initSwaggerConfigs();
   const server = createServer();
-
-  // Connect Stdio Transport
   const transport = new StdioServerTransport();
   await server.connect(transport);
 }
 
+// Run CLI when executed directly
 main().catch((error) => {
   console.error("Server failed to start:", error);
   process.exit(1);
