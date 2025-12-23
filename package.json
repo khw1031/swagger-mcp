@@ -1,6 +1,6 @@
 {
   "name": "@hynu/swagger-mcp",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An open-source MCP server that provides API documentation (Swagger/OpenAPI) to LLMs through the Model Context Protocol",
   "type": "module",
   "main": "./dist/index.mjs",
