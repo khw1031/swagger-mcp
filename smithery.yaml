@@ -3,3 +3,5 @@
 
 runtime: "typescript"
 target: "local"
+env:
+  SWAGGER_CONFIG_PATH: "/ABSOLUTE_PATH/TO/swagger-config.json"
