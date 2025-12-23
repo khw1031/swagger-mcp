@@ -2,50 +2,23 @@
  * Smithery entry point for @hynu/swagger-mcp
  *
  * This file exports the default createServer function required by Smithery.
- * The config is received from Smithery's configSchema and used to initialize
- * the Swagger service configurations.
+ * It initializes Swagger configurations from SWAGGER_CONFIG_PATH environment variable
+ * and creates the MCP server using existing logic.
  */
 
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { registerTools } from "./tools/index.js";
-import { setSwaggerConfigs } from "./services/swagger-fetcher.service.js";
-import { SwaggerConfigSchema, type SwaggerDocConfig } from "./schemas/swagger.schema.js";
-import pkg from "../package.json" with { type: "json" };
-
-interface SmitheryConfig {
-  services: Array<{
-    name: string;
-    environment: string;
-    description?: string;
-    url: string;
-  }>;
-}
+import { initSwaggerConfigs } from "./services/swagger-fetcher.service.js";
+import { createServer } from "./server.js";
 
 /**
  * Create MCP Server for Smithery deployment
  *
- * @param options - Smithery options containing config
+ * Uses existing logic:
+ * - Reads config from SWAGGER_CONFIG_PATH environment variable
+ * - Creates MCP server with registered tools
+ *
  * @returns McpServer instance
  */
-export default function createServer({ config }: { config: SmitheryConfig }) {
-  // Validate and set swagger configurations
-  const result = SwaggerConfigSchema.safeParse(config);
-
-  if (result.success) {
-    setSwaggerConfigs(result.data.services);
-  } else {
-    console.error("[swagger-mcp] Invalid config:", result.error.message);
-    setSwaggerConfigs([]);
-  }
-
-  // Create MCP server
-  const server = new McpServer({
-    name: pkg.name,
-    version: pkg.version,
-  });
-
-  // Register Tools
-  registerTools(server);
-
-  return server.server;
+export default async function () {
+  await initSwaggerConfigs();
+  return createServer();
 }
