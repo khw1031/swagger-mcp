@@ -2,3 +2,4 @@
 # https://smithery.ai/docs/build/project-config/smithery-yaml
 
 runtime: "typescript"
+target: "local"
