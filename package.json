@@ -4,6 +4,7 @@
   "description": "An open-source MCP server that provides API documentation (Swagger/OpenAPI) to LLMs through the Model Context Protocol",
   "type": "module",
   "main": "./dist/index.mjs",
+  "module": "./src/index.ts",
   "bin": {
     "hynu-swagger-mcp": "./dist/index.mjs"
   },
