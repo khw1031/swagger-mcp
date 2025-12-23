@@ -64,7 +64,7 @@ Create [package.json](package.json):
 **Dependencies:**
 - `@modelcontextprotocol/sdk` - MCP server SDK
 - `@scalar/openapi-parser` - OpenAPI document parsing
-- `zod` - Schema validation (use v4: `zod/v4`)
+zod/v4`)
 
 **Dev Dependencies:**
 - `typescript`
