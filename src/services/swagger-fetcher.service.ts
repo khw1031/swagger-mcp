@@ -12,15 +12,18 @@ let swaggerConfigs: SwaggerDocConfig[] = [];
 
 /**
  * Initialize Swagger configurations
- * Read the configuration file path from the SWAGGER_CONFIG_PATH environment variable and validate it with the Zod schema
+ * Read the configuration file path from the parameter or SWAGGER_CONFIG_PATH environment variable
+ *
+ * @param configPathParam - Optional path to the swagger-config.json file (from Smithery config)
  */
-export async function initSwaggerConfigs(): Promise<void> {
+export async function initSwaggerConfigs(configPathParam?: string): Promise<void> {
   const fs = await import("node:fs/promises");
 
-  const configPath = process.env.SWAGGER_CONFIG_PATH;
+  // Smithery config takes precedence over environment variable
+  const configPath = configPathParam || process.env.SWAGGER_CONFIG_PATH;
 
   if (!configPath) {
-    console.error("[swagger-mcp] SWAGGER_CONFIG_PATH environment variable is not set.");
+    console.error("[swagger-mcp] SWAGGER_CONFIG_PATH is not set. Provide it via Smithery config or environment variable.");
     swaggerConfigs = [];
     return;
   }

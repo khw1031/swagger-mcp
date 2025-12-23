@@ -5,18 +5,33 @@
  */
 
 import { fileURLToPath } from "node:url";
+import { z } from "zod/v4";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { createServer } from "./server.js";
 import { initSwaggerConfigs } from "./services/swagger-fetcher.service.js";
 
 /**
+ * Smithery configSchema
+ * Defines the configuration options for the MCP server
+ */
+export const configSchema = z.object({
+  swaggerConfigPath: z
+    .string()
+    .describe("Absolute path to the swagger-config.json file"),
+});
+
+type SmitheryConfig = z.infer<typeof configSchema>;
+
+/**
  * Smithery entry point
  * Creates MCP server for Smithery deployment and capability discovery
  *
+ * @param options - Smithery options containing config
  * @returns MCP Server instance
  */
-export default async function () {
-  await initSwaggerConfigs();
+export default async function (options?: { config?: SmitheryConfig }) {
+  const configPath = options?.config?.swaggerConfigPath;
+  await initSwaggerConfigs(configPath);
   const mcpServer = createServer();
   return mcpServer.server;
 }
