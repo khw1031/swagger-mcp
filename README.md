@@ -1,5 +1,6 @@
 # @hynu/swagger-mcp
 
+[![smithery badge](https://smithery.ai/badge/hynu/swagger-mcp)](https://smithery.ai/server/hynu/swagger-mcp)
 ![version](https://img.shields.io/npm/v/@hynu/swagger-mcp)
 
 [English](README.md) | [한국어](README.ko.md) | [中文](README.zh.md) | [日本語](README.ja.md)
