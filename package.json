@@ -4,6 +4,7 @@
   "description": "An open-source MCP server that provides API documentation (Swagger/OpenAPI) to LLMs through the Model Context Protocol",
   "type": "module",
   "main": "./dist/index.mjs",
+  "module": "src/smithery.ts",
   "bin": {
     "hynu-swagger-mcp": "./dist/index.mjs"
   },
@@ -52,6 +53,7 @@
   },
   "devDependencies": {
     "@scalar/openapi-types": "^0.5.3",
+    "@smithery/cli": "^2.0.0",
     "@types/node": "^25.0.3",
     "tsdown": "^0.18.0",
     "typescript": "^5.9.3"

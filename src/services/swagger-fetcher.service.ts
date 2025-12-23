@@ -11,6 +11,13 @@ import { SwaggerConfigSchema, type SwaggerDocConfig } from "../schemas/swagger.s
 let swaggerConfigs: SwaggerDocConfig[] = [];
 
 /**
+ * Set Swagger configurations directly (for Smithery deployment)
+ */
+export function setSwaggerConfigs(configs: SwaggerDocConfig[]): void {
+  swaggerConfigs = configs;
+}
+
+/**
  * Initialize Swagger configurations
  * Read the configuration file path from the SWAGGER_CONFIG_PATH environment variable and validate it with the Zod schema
  */
